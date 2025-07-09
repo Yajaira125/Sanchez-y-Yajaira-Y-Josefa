@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sánchez y Sánchez: La Calidad que Distingue tu Hogar en la Patagonia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --verde-sanchez: #8BC53F;
+      --azul-sanchez: #1D2B64;
+      --gris-claro: #f0f2f5;
+      --texto-gris: #555;
+      --verde-hover: #7ab236; 
+      --transition-speed: 0.3s ease-in-out;
+
+      --primary-color: var(--azul-sanchez);
+      --secondary-color: #6c757d;
+      --success-color: var(--verde-sanchez); 
+      --info-color: #17a2b8;
+      --warning-color: #ffc107;
+      --danger-color: #dc3545;
+      --light-color: #f8f9fa;
+      --dark-color: #343a40;
+    }
+
+    body {
+      background-color: var(--gris-claro);
+      font-family: 'Roboto', sans-serif;
+      color: var(--texto-gris);
+      padding-top: 75px; 
+    }
+
+    .navbar-custom {
+      background-color: var(--azul-sanchez);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar-brand img {
+      height: 60px;
+      box-shadow: 0 0 15px rgba(139, 197, 63, 0.7); 
+      border-radius: 8px;
+      transition: box-shadow var(--transition-speed);
+    }
+
+    .navbar-brand img:hover {
+      box-shadow: 0 0 20px rgba(139, 197, 63, 1);
+    }
+
+    .nav-link {
+      font-weight: 500;
+      transition: color var(--transition-speed);
+      color: white; 
+    }
+
+    .nav-link:hover {
+      color: var(--verde-sanchez) !important;
+    }
+    
+    .nav-link.active {
+      color: var(--verde-sanchez) !important; 
+      border-bottom: 2px solid var(--verde-sanchez); 
+      padding-bottom: 0.25rem;
+    }
+
+    .text-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition-speed);
+    }
+
+    .text-link:hover {
+      color: var(--verde-sanchez);
+    }
+
+    .navbar-custom .form-control {
+      border-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .navbar-custom .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .navbar-custom .form-control:focus {
+      border-color: var(--verde-sanchez);
+      box-shadow: 0 0 0 0.25rem rgba(139, 197, 63, 0.25);
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .btn-primary {
+      background-color: var(--verde-sanchez);
+      border-color: var(--verde-sanchez);
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      transition: background-color var(--transition-speed), border-color var(--transition-speed), transform var(--transition-speed);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--verde-hover);
+      border-color: var(--verde-hover);
+      transform: translateY(-2px); 
+    }
+
+    .btn-outline-primary {
+      color: var(--azul-sanchez);
+      border-color: var(--azul-sanchez);
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed); 
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--azul-sanchez);
+      color: white;
+      transform: translateY(-2px); 
+    }
+
+    .btn-outline-light { 
+      color: white;
+      border-color: white;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+
+    .btn-outline-light:hover {
+      background-color: white;
+      color: var(--azul-sanchez);
+    }
+
+    .hero-section {
+      background: linear-gradient(rgba(29, 43, 100, 0.8), rgba(29, 43, 100, 0.8)), url('hero-bg.jpg') no-repeat center center/cover; /* Asegúrate de tener esta imagen */
+      color: white;
+      padding: 8rem 0;
+      text-align: center;
+      margin-bottom: 4rem;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-section h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-section p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+
+    .green-highlight {
+      color: var(--verde-sanchez);
+      font-weight: bold;
+    }
+
+    .lead-slogan {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--azul-sanchez);
+      text-align: center;
+      margin-top: -2rem; 
+      margin-bottom: 3rem;
+      padding: 1rem 0;
+      position: relative;
+      z-index: 1; 
+    }
+    .lead-slogan::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background-color: var(--verde-sanchez);
+      margin: 0.5rem auto 0;
+    }
+
+    .section-title {
+      color: var(--azul-sanchez);
+      border-bottom: 3px solid var(--verde-sanchez);
+      display: inline-block;
+      padding-bottom: 8px;
+      margin-bottom: 4rem;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--verde-sanchez);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+      height: 100%;
+      text-align: center;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed); 
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px) scale(1.02); 
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+    
+    .feature-card h4 {
+      color: var(--azul-sanchez);
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      color: var(--texto-gris);
+    }
+
+    .carousel-item img {
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 0.75rem; 
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 50px;
+      height: 50px; 
+      border-radius: 50%; 
+      background-color: var(--verde-sanchez); 
+      opacity: 0.8; 
+      transition: opacity var(--transition-speed), background-color var(--transition-speed);
+      top: 50%; 
+      transform: translateY(-50%); 
+    }
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      background-color: var(--verde-hover);
+      opacity: 1;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(1) grayscale(100%) brightness(200%); 
+      width: 20px; 
+      height: 20px; 
+    }
+
+    .card {
+      border: none;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-img-top {
+      height: 250px; 
+      object-fit: cover;
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+    }
+
+    .card-title {
+      color: var(--azul-sanchez);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-text {
+      color: var(--texto-gris);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .card .fw-bold {
+      color: var(--verde-sanchez); 
+    }
+
+    .accordion-item {
+      border: 1px solid rgba(0, 0, 0, .125);
+      border-radius: 0.5rem;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .accordion-button {
+      background-color: white;
+      color: var(--azul-sanchez);
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 1rem 1.25rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: white;
+      background-color: var(--verde-sanchez);
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+    }
+
+    .accordion-button:not(.collapsed)::after {
+      filter: brightness(0%) invert(100%); 
+    }
+
+    .accordion-button:focus {
+      box-shadow: 0 0 0 0.25rem rgba(139, 197, 63, 0.25);
+    }
+
+    .accordion-body {
+      padding: 1.25rem;
+      background-color: white;
+      color: var(--texto-gris);
+    }
+    #contact-section .form-label {
+      font-weight: 500;
+      color: var(--azul-sanchez);
+    }
+
+    #contact-section .form-control {
+      border-radius: 0.5rem;
+      border: 1px solid var(--texto-gris);
+      padding: 0.75rem 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #contact-section .form-control:focus {
+      border-color: var(--verde-sanchez);
+      box-shadow: 0 0 0 0.25rem rgba(139, 197, 63, 0.25);
+    }
+
+    .green-bg-light {
+      background-color: rgba(139, 197, 63, 0.1);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin-top: 2rem;
+      border: 1px solid var(--verde-sanchez); 
+    }
+
+    .green-bg-light h5, .green-bg-light h6 {
+      color: var(--azul-sanchez);
+    }
+
+    .green-bg-light p, .green-bg-light ul {
+      color: var(--texto-gris);
+    }
+
+    .green-bg-light ul li {
+      margin-bottom: 0.25rem;
+    }
+    
+    .store-list ul {
+      list-style: none;
+      padding: 0;
+      text-align: left; 
+    }
+    .store-list ul li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem; 
+      color: var(--texto-gris);
+    }
+    .store-list ul li strong {
+      color: var(--azul-sanchez);
+    }
+
+    footer {
+      background-color: var(--azul-sanchez);
+      padding: 3rem 0;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    footer h5 {
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: var(--verde-sanchez);
+    }
+
+    footer .footer-logo {
+      height: 90px; 
+      box-shadow: 0 0 15px rgba(139, 197, 63, 0.7); 
+      border-radius: 8px;
+      transition: box-shadow var(--transition-speed); 
+    }
+    .footer-logo:hover {
+      box-shadow: 0 0 20px rgba(139, 197, 63, 1); 
+    }
+
+    footer ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    footer ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color var(--transition-speed);
+      padding: 0.2rem 0;
+      display: inline-block;
+    }
+
+    footer ul li a:hover {
+      color: var(--verde-sanchez);
+    }
+    
+    footer .text-light {
+      color: white !important;
+    }
+
+    footer .text-light:hover {
+      color: var(--verde-sanchez) !important;
+    }
+
+    .footer-slogan {
+      font-weight: 500;
+      color: var(--verde-sanchez);
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      width: 100%;
+      display: block; 
+    }
+
+    .green-border-top {
+      border-top: 5px solid var(--verde-sanchez);
+      padding-top: 1rem;
+    }
+
+    .modal-content {
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header {
+        border-bottom: 1px solid var(--gris-claro);
+        background-color: var(--azul-sanchez);
+        color: white;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+    .modal-title {
+        font-weight: 600;
+        color: white; 
+    }
+
+    .modal-body {
+        color: var(--texto-gris);
+        background-color: white;
+    }
+
+    .modal-footer {
+        border-top: 1px solid var(--gris-claro);
+        background-color: white;
+    }
+
+    .modal .form-control {
+        background-color: var(--gris-claro);
+        border: 1px solid #ccc;
+        color: var(--texto-gris);
+    }
+
+    .modal .form-control::placeholder {
+        color: #888;
+    }
+
+    .modal .form-control:focus {
+        border-color: var(--verde-sanchez);
+        box-shadow: 0 0 0 0.25rem rgba(139, 197, 63, 0.25);
+        background-color: white;
+        color: var(--texto-gris);
+    }
+
+    .modal .form-label {
+        color: var(--texto-gris);
+    }
+
+    .modal .btn-primary {
+        background-color: var(--verde-sanchez);
+        border-color: var(--verde-sanchez);
+    }
+
+    .modal .btn-primary:hover {
+        background-color: var(--verde-hover);
+        border-color: var(--verde-hover);
+    }
+
+    .modal .nav-tabs .nav-link {
+        color: var(--azul-sanchez);
+        border: none;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .modal .nav-tabs .nav-link.active {
+        background-color: transparent;
+        color: var(--verde-sanchez);
+        border-color: var(--verde-sanchez);
+        font-weight: bold;
+    }
+
+    .modal .nav-tabs .nav-link:hover {
+        border-color: rgba(139, 197, 63, 0.5);
+    }
+
+    .modal .btn-close {
+        filter: invert(1); 
+    }
+
+    #cart-items-list h6 {
+      color: var(--azul-sanchez);
+    }
+    #cart-items-list small {
+      color: var(--texto-gris);
+    }
+    #cart-items-list .fw-bold {
+      color: var(--verde-sanchez);
+    }
+    .remove-from-cart-btn {
+      background-color: var(--danger-color); 
+      border-color: var(--danger-color);
+      color: white;
+      border-radius: 5px;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.8rem;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .remove-from-cart-btn:hover {
+      background-color: #bd2130;
+      border-color: #b21f2d;
+    }
+
+    #checkout-btn {
+      background-color: var(--success-color);
+      border-color: var(--success-color);
+    }
+    #checkout-btn:hover {
+      background-color: var(--verde-hover);
+      border-color: var(--verde-hover);
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar-custom .navbar-collapse {
+        background-color: var(--azul-sanchez);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .navbar-nav .nav-link,
+      .navbar-custom .text-link {
+        margin-bottom: 0.5rem;
+      }
+      .navbar-custom .d-flex {
+        margin-top: 1rem;
+      }
+      .hero-section {
+        padding: 6rem 0;
+      }
+      .hero-section h1 {
+        font-size: 2.8rem;
+      }
+      .hero-section p {
+        font-size: 1.1rem;
+      }
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+      .lead-slogan {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      body {
+        padding-top: 65px;
+      }
+      .navbar-brand img {
+        height: 50px;
+      }
+      .hero-section {
+        padding: 4rem 0;
+      }
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      .hero-section p {
+        font-size: 0.95rem;
+      }
+      .btn-lg {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+      .feature-card {
+        padding: 1.5rem;
+      }
+      .feature-card .feature-icon {
+        font-size: 2.5rem;
+      }
+      .feature-card h4 {
+        font-size: 1.1rem;
+      }
+      .card-img-top {
+        height: 180px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .modal-dialog {
+        margin: 0.5rem;
+      }
+    }
+      :root {
+      --primary-color: #1D2B64; /* Tu azul de Sánchez y Sánchez */
+      --success-color: #8BC53F; /* Tu verde de Sánchez y Sánchez */
+      --secondary-text-color: #555; /* Tu gris de texto */
+    }
+
+    .text-primary { color: var(--primary-color) !important; }
+    .text-secondary { color: var(--secondary-text-color) !important; } /* Ajusta si ya la tienes */
+
+    /* Estilo del botón personalizado para el video */
+    .btn-success-custom {
+        background-color: var(--primary-color); /* Fondo azul */
+        border-color: var(--primary-color); /* Borde azul */
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-success-custom:hover {
+        background-color: var(--success-color); /* Verde al hacer hover */
+        border-color: var(--success-color); /* Borde verde */
+        transform: translateY(-2px); /* Pequeño efecto de elevación */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .btn-success-custom:focus,
+    .btn-success-custom:active {
+        background-color: var(--success-color); /* Mantener verde al click o foco */
+        border-color: var(--success-color);
+        box-shadow: 0 0 0 0.25rem rgba(139, 197, 63, 0.5); /* Sombra de foco verde */
+    }
+
+    /* Estilos opcionales para el título de la sección si no te gusta el "page-header" anterior */
+    .display-5 {
+        font-size: 2.5rem; /* Bootstrap display-5 default, pero puedes personalizar */
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+    .display-5::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 80px;
+        height: 4px;
+        background-color: var(--success-color);
+        border-radius: 2px;
+    }
+</style>
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand" href="#">
+        <img src="LOGO_SANCHEZ_ARREGLADO_2024.png" alt="Sánchez y Sánchez Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Categorias.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pagos.html">Pago</a>
+          </li>
+        </ul>
+
+        <a href="#" class="text-link me-2" data-bs-toggle="modal" data-bs-target="#modalCuenta" data-account-tab="login">Iniciar Sesión</a>
+        <span class="text-white">|</span>
+        <a href="#" class="text-link ms-2 me-3" data-bs-toggle="modal" data-bs-target="#modalCuenta" data-account-tab="crear">Crear Cuenta</a>
+
+        <a href="#" class="text-link me-3" data-bs-toggle="modal" data-bs-target="#modalCarrito"><i class="bi bi-cart-fill me-1"></i>Carrito <span class="badge bg-primary rounded-pill" id="navbar-cart-count">0</span></a>
+
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Buscar productos">
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <div class="container">
+      <h1 class="display-3">Sánchez y Sánchez: La Calidad que Distingue tu Hogar en la <span class="green-highlight">Patagonia</span></h1>
+      <p class="lead">Desde 1933, somos la tradición familiar en Punta Arenas para encontrar todo lo que necesitas: <span class="green-highlight">moda, electrodomésticos, tecnología, menaje y mucho más</span>. Nos destacamos por la calidad, la variedad y la atención que tú mereces.</p>
+      <a href="#featured-products-section" class="btn btn-primary btn-lg me-3">Descubre Nuestros Productos</a>
+      <a href="#about-us-section" class="btn btn-outline-light btn-lg">Conócenos Más</a>
+    </div>
+  </header>
+
+  <div class="container mt-4">
+    <p class="lead-slogan">"Tu familia, tu hogar, tu estilo: todo en un solo lugar con la calidad de Sánchez y Sánchez."</p>
+  </div>
+
+  <section class="container my-5" id="about-us-section">
+    <h2 class="section-title text-center">Nuestra Historia</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <p class="lead"> Desde 1933, nuestra empresa 100% magallánica y enfocada al desarrollo e innovación en el mercado del “retail”, es el fruto de un emprendimiento familiar que comenzó durante los primeros años de la década de los treinta del siglo XX con los sueños, el tesón y el espíritu visionario de don Francisco Sánchez Machado, quien junto a su esposa fundó un pequeño negocio de fotografía, transmitiendo así su ejemplo y entusiasmo a las generaciones siguientes. </p>
+         <button type="button" class="btn btn-lg btn-success-custom mt-4" data-bs-toggle="modal" data-bs-target="#videoHistoriaModal">
+                    <i class="bi bi-play-circle-fill me-2"></i> Ver Video de Nuestra Historia
+                </button>
+      </div>
+    </div>
+  </section>
+    <h2 class="section-title text-center">Explora Nuestras Categorías</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <div class="col">
+        <div class="feature-card d-flex flex-column align-items-center justify-content-center">
+          <i class="bi bi-person-fill feature-icon"></i>
+          <h4 class="mb-3">Moda y Vestuario</h4>
+          <p class="text-muted">Las últimas tendencias y prendas esenciales para vestir a toda la familia con estilo.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature-card d-flex flex-column align-items-center justify-content-center">
+          <i class="bi bi-tv-fill feature-icon"></i>
+          <h4 class="mb-3">Electro y Hogar</h4>
+          <p class="text-muted">Desde grandes electrodomésticos hasta pequeños aparatos que simplifican tu vida diaria.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature-card d-flex flex-column align-items-center justify-content-center">
+          <i class="bi bi-laptop-fill feature-icon"></i>
+          <h4 class="mb-3">Tecnología y Computación</h4>
+          <p class="text-muted">Smartphones, laptops, accesorios y todo lo necesario para mantenerte conectado y productivo.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature-card d-flex flex-column align-items-center justify-content-center">
+          <i class="bi bi-house-door-fill feature-icon"></i>
+          <h4 class="mb-3">Menaje y Decoración</h4>
+          <p class="text-muted">Artículos prácticos y decorativos para crear ambientes acogedores y funcionales en tu hogar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="carouselBanner" class="carousel slide my-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="banner_invierno_mesa_de_trabajo_1_1_.png" class="d-block w-100" alt="Ofertas en Vestuario de temporada para hombre y mujer">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="banner_invierno_mesa_de_trabajo_1_copia_1_.png" class="d-block w-100" alt="Innovación en tecnología para el hogar, Smart TVs y electrodomésticos">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="banner_invierno_mesa_de_trabajo_1_copia_2_1_.png" class="d-block w-100" alt="Especial de Computación: laptops, monitores y accesorios">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+
+  <div class="container my-5" id="featured-products-section">
+    <h2 class="section-title text-center">Productos Destacados</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="Zapatillas.jpg" class="card-img-top" alt="Zapatillas Deportivas para Hombre, color negro y blanco">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Zapatillas Deportivas Hombre</h5>
+            <p class="card-text">Comodidad y estilo para tu día a día o tus entrenamientos.</p>
+            <div class="mt-auto">
+              <span class="fw-bold fs-5 text-success">$49.990</span>
+              <button type="button" class="btn btn-primary w-100 mt-2 add-to-cart-btn" data-product-id="1" data-product-name="Zapatillas Deportivas Hombre" data-product-price="49990">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="Lavadora1.jpg" class="card-img-top" alt="Lavadora Automática Samsung de 10kg, color blanco">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Lavadora Automática 10kg</h5>
+            <p class="card-text">Eficiencia y capacidad para el cuidado de toda tu ropa. Programa rápido y ahorro energético.</p>
+            <div class="mt-auto">
+              <span class="fw-bold fs-5 text-success">$289.990</span>
+              <button type="button" class="btn btn-primary w-100 mt-2 add-to-cart-btn" data-product-id="2" data-product-name="Lavadora Automática 10kg" data-product-price="289990">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="Laptop.png" class="card-img-top" alt="Notebook Ultrabook HP de 14 pulgadas, color plata">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Notebook Ultrabook 14"</h5>
+            <p class="card-text">Ideal para trabajo y estudio. Ligera, potente y con batería de larga duración.</p>
+            <div class="mt-auto">
+              <span class="fw-bold fs-5 text-success">$599.990</span>
+              <button type="button" class="btn btn-primary w-100 mt-2 add-to-cart-btn" data-product-id="3" data-product-name="Notebook Ultrabook 14&quot;" data-product-price="599990">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="Sartenes1.jpg" class="card-img-top" alt="Set de Sartenes Antiadherentes T-fal, tres unidades de diferentes tamaños">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Set de Sartenes Antiadherentes</h5>
+            <p class="card-text">Cocina sin problemas y con la mejor calidad. Variedad de tamaños para todas tus recetas.</p>
+            <div class="mt-auto">
+              <span class="fw-bold fs-5 text-success">$35.990</span>
+              <button type="button" class="btn btn-primary w-100 mt-2 add-to-cart-btn" data-product-id="4" data-product-name="Set de Sartenes Antiadherentes" data-product-price="35990">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="Jeans.jpg" class="card-img-top" alt="Jeans Hombre Slim Fit, color azul oscuro">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Jeans Hombre Slim Fit</h5>
+            <p class="card-text">El calce perfecto para tu estilo diario. Comodidad y durabilidad garantizadas.</p>
+            <div class="mt-auto">
+              <span class="fw-bold fs-5 text-success">$32.990</span>
+              <button type="button" class="btn btn-primary w-100 mt-2 add-to-cart-btn" data-product-id="5" data-product-name="Jeans Hombre Slim Fit" data-product-price="32990">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="Audifonos.jpg" class="card-img-top" alt="Audífonos Bluetooth Inalámbricos, color negro con estuche de carga">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Audífonos Bluetooth Inalámbricos</h5>
+            <p class="card-text">Sonido envolvente y libertad de movimiento. Ideal para música y llamadas.</p>
+            <div class="mt-auto">
+              <span class="fw-bold fs-5 text-success">$29.990</span>
+              <button type="button" class="btn btn-primary w-100 mt-2 add-to-cart-btn" data-product-id="6" data-product-name="Audífonos Bluetooth Inalámbricos" data-product-price="29990">Agregar al Carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  ---
+
+  <section class="container my-5" id="faq-section">
+    <h2 class="section-title text-center">Preguntas Frecuentes</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            ¿Cuáles son los métodos de pago aceptados?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            En Sánchez y Sánchez, aceptamos una variedad de métodos de pago para tu comodidad: tarjetas de crédito (Visa, Mastercard, American Express), tarjetas de débito y transferencias bancarias. También puedes realizar tus pagos directamente en cualquiera de nuestras tiendas físicas.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            ¿Hacen despachos a domicilio en Punta Arenas?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            ¡Sí, claro! Ofrecemos servicio de despacho a domicilio en toda la comuna de Punta Arenas. El costo y el tiempo de entrega pueden variar según el tamaño y tipo de producto, así como la dirección de destino. Te invitamos a consultar los detalles específicos durante el proceso de tu compra online.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            ¿Cuál es la política de cambios y devoluciones?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            En Sánchez y Sánchez, tu satisfacción es nuestra prioridad. Puedes realizar cambios o devoluciones de productos en un plazo de **30 días** desde la fecha de compra. Es indispensable que el producto se encuentre en perfectas condiciones, con su empaque original intacto y que presentes la boleta de compra. Te recomendamos revisar nuestras políticas completas de cambio y devolución disponibles en cualquiera de nuestras tiendas.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            ¿Ofrecen garantía en sus productos?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Absolutamente. Todos los productos que adquieres en Sánchez y Sánchez cuentan con la garantía legal y del fabricante correspondiente. Para obtener información más detallada sobre la garantía de un producto específico, te invitamos a consultar la descripción del mismo o contactar a nuestro equipo de atención al cliente, quienes estarán encantados de ayudarte.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  ---
+
+  <section class="bg-white py-5" id="contact-section">
+    <div class="container">
+      <h2 class="section-title text-center">Contáctanos</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p class="text-center mb-4">¿Tienes alguna pregunta o necesitas asesoramiento? No dudes en ponerte en contacto con nuestro equipo.</p>
+          <form>
+            <div class="mb-3">
+              <label for="contactName" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" id="contactName" name="contactName" required aria-label="Nombre completo">
+            </div>
+            <div class="mb-3">
+              <label for="contactEmail" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="contactEmail" name="contactEmail" required aria-label="Correo electrónico">
+            </div>
+            <div class="mb-3">
+              <label for="contactPhone" class="form-label">Teléfono (opcional)</label>
+              <input type="tel" class="form-control" id="contactPhone" name="contactPhone" aria-label="Número de teléfono">
+            </div>
+            <div class="mb-3">
+              <label for="contactSubject" class="form-label">Asunto</label>
+              <input type="text" class="form-control" id="contactSubject" name="contactSubject" aria-label="Asunto del mensaje">
+            </div>
+            <div class="mb-3">
+              <label for="contactMessage" class="form-label">Mensaje</label>
+              <textarea class="form-control" id="contactMessage" name="contactMessage" rows="5" required aria-label="Tu mensaje"></textarea>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+            </div>
+          </form>
+          <div class="text-center mt-4 green-bg-light">
+            <h5>Encuéntranos en:</h5>
+            <p class="mb-1"><strong>Sánchez y Sánchez S.A.</strong></p>
+            <p class="mb-1">Teléfono: +56 61 2244463 / +56 61 2243292</p>
+            <p class="mb-0">Horario de atención: Lunes a Viernes 09:00 a 18:30 hrs.</p>
+            <hr class="my-3 opacity-25">
+            <div class="store-list">
+                <h6 class="text-primary fw-bold">Nuestras Tiendas en Punta Arenas:</h6>
+                <ul class="list-unstyled mb-0 small text-dark">
+                    <li><i class="bi bi-shop me-1"></i><strong>Manzana 7</strong>, Zona Franca</li>
+                    <li><i class="bi bi-shop me-1"></i><strong>Souvenir</strong>, Módulo central Zona Franca</li>
+                    <li><i class="bi bi-shop me-1"></i><strong>Duty Free</strong>, Módulo central Zona Franca</li>
+                    <li><i class="bi bi-shop me-1"></i><strong>Fashion Factory</strong>, Módulo central Zona Franca</li>
+                    <li><i class="bi bi-shop me-1"></i><strong>The Beauty Box</strong>, Módulo central Zona Franca</li>
+                    <li><i class="bi bi-shop me-1"></i><strong>Local Bories</strong>, Punta Arenas</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0 d-flex flex-column align-items-center">
+          <h5 class="mb-3 green-highlight">Sánchez y Sánchez</h5>
+          <img src="LOGO_SANCHEZ_ARREGLADO_2024.png" alt="Logo Sánchez y Sánchez" class="footer-logo mb-2">
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="mb-3 green-highlight">Navegación</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Categorias.html">Categorías</a></li>
+            <li><a href="pagos.html">Pago</a></li>
+            <li><a href="#about-us-section">Quiénes Somos</a></li>
+            <li><a href="#contact-section">Contacto</a></li>
+            <li><a href="#faq-section">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="mb-3 green-highlight">Síguenos</h5>
+          <a href="https://www.facebook.com/sanchezonline" target="_blank" class="text-light me-3" aria-label="Visita nuestra página de Facebook"><i class="bi bi-facebook fs-4"></i></a>
+          <a href="#" class="text-light me-3" aria-label="Síguenos en Twitter"><i class="bi bi-twitter fs-4"></i></a>
+          <a href="#" class="text-light" aria-label="Síguenos en Instagram"><i class="bi bi-instagram fs-4"></i></a>
+          <a href="#" class="text-light" aria-label="Conéctate con nosotros en LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
+        </div>
+      </div>
+      <hr class="my-4 border-light opacity-25 green-border-top">
+      <p class="mb-0 text-center footer-slogan">Orgullosamente Magallánicos, llevando lo mejor a tu hogar.</p>
+      <p class="mb-0 text-center">&copy; 2025 Yajaira & Josefa. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCarritoLabel"><i class="bi bi-cart-fill me-2"></i>Carrito de Compras (<span id="cart-item-count">0</span>)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cart-items-list">
+            <p class="text-center py-3" id="empty-cart-message">Tu carrito está vacío. Agrega productos para continuar.</p>
+          </div>
+          <div id="cart-summary" class="mt-4 border-top pt-3 d-none">
+            <h5 class="text-end">Total: <span id="cart-total">$0</span></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <a href="pagos.html" class="btn btn-success" id="checkout-btn">Finalizar Compra</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalCuenta" tabindex="-1" aria-labelledby="modalCuentaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCuentaLabel"><i class="bi bi-person-circle me-2"></i>Acceso a Cuenta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs" id="cuentaTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="crear-tab" data-bs-toggle="tab" data-bs-target="#crear" type="button" role="tab" aria-controls="crear" aria-selected="true">Crear Cuenta</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="false">Iniciar Sesión</button>
+            </li>
+          </ul>
+          <div class="tab-content pt-3">
+            <div class="tab-pane fade show active" id="crear" role="tabpanel" aria-labelledby="crear-tab">
+              <form>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre completo</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" required aria-label="Nombre completo para registro">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" id="email" name="email" required aria-label="Correo electrónico para registro">
+                </div>
+                <div class="mb-3">
+                  <label for="verificacion" class="form-label">Verificar correo</label>
+                  <input type="email" class="form-control" id="verificacion" name="verificacion" required aria-label="Verificar correo electrónico">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password" required aria-label="Contraseña para registro">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
+              <form>
+                <div class="mb-3">
+                  <label for="login-email" class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" id="login-email" name="loginEmail" required aria-label="Correo electrónico para iniciar sesión">
+                </div>
+                <div class="mb-3">
+                  <label for="login-password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="login-password" name="loginPassword" required aria-label="Contraseña para iniciar sesión">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="videoHistoriaModal" tabindex="-1" aria-labelledby="videoHistoriaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoHistoriaModalLabel">Nuestra Historia en Sánchez y Sánchez</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0 d-flex justify-content-center"> <div class="ratio ratio-16x9" style="max-width: 800px; width: 100%;"> <iframe src="Video .mp4" allowfullscreen></iframe>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+    const videoModal = document.getElementById('videoHistoriaModal');
+    if (videoModal) {
+        videoModal.addEventListener('hidden.bs.modal', function (event) {
+            const iframe = videoModal.querySelector('iframe');
+            if (iframe) {
+                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            }
+        });
+    }
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var modalCuenta = document.getElementById('modalCuenta');
+      modalCuenta.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var accountTab = button.getAttribute('data-account-tab');
+        if (accountTab) {
+          var accountTabs = new bootstrap.Tab(document.getElementById(accountTab + '-tab'));
+          accountTabs.show();
+        }
+      });
+
+      let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+      
+      const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+      const cartItemsList = document.getElementById('cart-items-list');
+      const cartItemCountSpan = document.getElementById('cart-item-count'); 
+      const cartTotalSpan = document.getElementById('cart-total');
+      const emptyCartMessage = document.getElementById('empty-cart-message');
+      const cartSummary = document.getElementById('cart-summary');
+      const navbarCartCount = document.getElementById('navbar-cart-count'); 
+
+      
+      function saveCart() {
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+      }
+
+      function formatChileanPeso(amount) {
+        return amount.toLocaleString('es-CL', {
+          style: 'currency',
+          currency: 'CLP',
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        });
+      }
+
+      function renderCart() {
+        cartItemsList.innerHTML = '';
+        let total = 0;
+        let totalItemsInCart = 0;
+
+        if (cart.length === 0) {
+          emptyCartMessage.classList.remove('d-none');
+          cartSummary.classList.add('d-none');
+        } else {
+          emptyCartMessage.classList.add('d-none');
+          cartSummary.classList.remove('d-none');
+          cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'py-2', 'border-bottom');
+            itemElement.innerHTML = `
+              <div>
+                <h6 class="mb-0">${item.name}</h6>
+                <small class="text-muted">Cantidad: ${item.quantity}</small>
+              </div>
+              <div class="text-end">
+                <span class="fw-bold">${formatChileanPeso(item.price * item.quantity)}</span>
+                <button type="button" class="btn btn-sm btn-danger ms-2 remove-from-cart-btn" data-product-id="${item.id}">X</button>
+              </div>
+            `;
+            cartItemsList.appendChild(itemElement);
+            total += item.price * item.quantity;
+            totalItemsInCart += item.quantity;
+          });
+        }
+        cartItemCountSpan.textContent = totalItemsInCart;
+        navbarCartCount.textContent = totalItemsInCart; 
+        cartTotalSpan.textContent = formatChileanPeso(total); 
+
+        if (totalItemsInCart === 0) {
+            navbarCartCount.classList.add('d-none');
+        } else {
+            navbarCartCount.classList.remove('d-none');
+        }
+      }
+
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const productId = this.dataset.productId;
+          const productName = this.dataset.productName;
+          const productPrice = parseFloat(this.dataset.productPrice); 
+
+          const existingItem = cart.find(item => item.id === productId);
+
+          if (existingItem) {
+            existingItem.quantity++;
+          } else {
+            cart.push({
+              id: productId,
+              name: productName,
+              price: productPrice,
+              quantity: 1
+            });
+          }
+          saveCart(); 
+          renderCart();
+          console.log(`"${productName}" agregado al carrito.`);
+        });
+      });
+
+      cartItemsList.addEventListener('click', function(event) {
+        if (event.target.classList.contains('remove-from-cart-btn')) {
+          const productIdToRemove = event.target.dataset.productId;
+          cart = cart.filter(item => item.id !== productIdToRemove);
+          saveCart();
+          renderCart();
+        }
+      });
+
+      var modalCarrito = document.getElementById('modalCarrito');
+      modalCarrito.addEventListener('show.bs.modal', function () {
+        renderCart();
+      });
+
+      renderCart();
+    });
+  </script>
+</body>
+</html>

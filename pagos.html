@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sánchez y Sánchez - Pago Seguro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-sanchez: #8BC53F;
+      --azul-sanchez: #1D2B64;
+      --gris-claro: #f0f2f5;
+      --texto-gris: #555;
+      --verde-hover: #7ab236;
+      --transition-speed: 0.3s ease-in-out;
+    }
+    body {
+      background-color: var(--gris-claro);
+      font-family: 'Roboto', sans-serif;
+      color: var(--texto-gris);
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    main {
+      flex: 1 0 auto;
+      padding: 20px 0;
+    }
+    .container {
+      margin-top: 20px;
+    }
+
+    nav {
+      background-color: var(--azul-sanchez);
+      height: 64px;
+      line-height: 64px;
+      padding: 0 20px;
+      box-shadow: none;
+    }
+
+    nav .brand-logo {
+      height: 64px;
+      line-height: 64px;
+      padding: 0;
+      margin-left: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    nav .brand-logo img {
+      height: 50px;
+      vertical-align: middle;
+    }
+
+    nav ul li a {
+      color: white !important;
+      font-weight: 500;
+      transition: all var(--transition-speed);
+      height: 64px;
+      line-height: 64px;
+      padding: 0 20px;
+      display: block;
+      position: relative;
+    }
+
+    nav ul li a:hover {
+      color: var(--verde-sanchez) !important;
+      background-color: rgba(0,0,0,0.15);
+      box-shadow: inset 0 -3px 0 0 var(--verde-sanchez);
+    }
+
+    nav ul li a.active {
+      color: white !important;
+      background-color: var(--verde-sanchez);
+      font-weight: 700;
+      box-shadow: inset 0 -3px 0 0 rgba(0,0,0,0.2);
+    }
+
+    nav ul li a.active:hover {
+        background-color: var(--verde-hover);
+        box-shadow: inset 0 -3px 0 0 rgba(0,0,0,0.3);
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 10px;
+      padding: 5px 0;
+    }
+    .page-header h4 {
+      color: var(--azul-sanchez);
+      font-weight: 700;
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    .page-header h4::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 80px;
+      height: 4px;
+      background-color: var(--verde-sanchez);
+      border-radius: 2px;
+    }
+
+    .card {
+      border-radius: 12px;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+    .card .card-title {
+      background-color: var(--azul-sanchez);
+      color: white;
+      padding: 18px 25px;
+      margin: -24px -24px 24px -24px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-content {
+        padding: 24px !important;
+    }
+
+    .input-field label {
+      color: var(--texto-gris);
+      font-weight: 400;
+    }
+    .input-field input:focus + label,
+    .input-field input:focus ~ label,
+    .input-field select:focus + label,
+    .input-field textarea:focus + label {
+      color: var(--verde-sanchez) !important;
+    }
+    .input-field input:focus,
+    .input-field select:focus,
+    .input-field textarea:focus {
+      border-bottom: 2px solid var(--verde-sanchez) !important;
+      box-shadow: 0 1px 0 0 var(--verde-sanchez) !important;
+    }
+    .input-field input.valid,
+    .input-field select.valid,
+    .input-field textarea.valid {
+      border-bottom: 2px solid var(--verde-sanchez) !important;
+      box-shadow: 0 1px 0 0 var(--verde-sanchez) !important;
+    }
+    .input-field input.invalid,
+    .input-field select.invalid,
+    .input-field textarea.invalid {
+      border-bottom: 2px solid #F44336 !important;
+      box-shadow: 0 1px 0 0 #F44336 !important;
+    }
+    .input-field .prefix {
+        color: var(--azul-sanchez);
+        transition: color var(--transition-speed);
+    }
+    .input-field input:focus ~ .prefix, .input-field select:focus ~ .prefix {
+        color: var(--verde-sanchez);
+    }
+  
+    .select-wrapper input.select-dropdown {
+        border-bottom: 1px solid #9e9e9e;
+    }
+    .select-wrapper input.select-dropdown:focus {
+        border-bottom: 2px solid var(--verde-sanchez) !important;
+        box-shadow: 0 1px 0 0 var(--verde-sanchez) !important;
+    }
+
+    .btn-large.pay-button {
+      background-color: var(--verde-sanchez);
+      margin-top: 25px;
+      border-radius: 8px;
+      font-weight: 500;
+      padding: 0 25px;
+      height: 50px;
+      line-height: 50px;
+      transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .btn-large.pay-button:hover {
+      background-color: var(--verde-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .tabs {
+      background-color: transparent;
+      margin-bottom: 20px;
+    }
+    .tabs .tab a {
+      color: var(--azul-sanchez);
+      font-weight: 500;
+      text-transform: none;
+      font-size: 1.1rem;
+      transition: all var(--transition-speed);
+      border-radius: 8px 8px 0 0;
+      padding: 15px 20px;
+      line-height: normal;
+      height: auto;
+    }
+    .tabs .tab a:hover {
+      color: var(--verde-sanchez);
+      background-color: rgba(29, 43, 100, 0.05);
+    }
+    .tabs .tab a.active {
+      background-color: var(--azul-sanchez);
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .tabs .indicator {
+      background-color: var(--verde-sanchez);
+      height: 4px;
+    }
+    .tab-content-panel {
+      padding: 25px;
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .collection {
+      border: none;
+      box-shadow: none;
+    }
+    .collection .collection-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px dashed #e0e0e0;
+    }
+    .collection .collection-item:last-child {
+      border-bottom: none;
+    }
+    .collection .collection-item .item-details {
+      flex-grow: 1;
+      padding-right: 15px;
+      color: var(--texto-gris);
+    }
+    .collection .collection-item .item-quantity {
+      font-size: 0.9em;
+      color: #888;
+      margin-left: 10px;
+    }
+    .collection .collection-item .price {
+      font-weight: 600;
+      color: var(--azul-sanchez);
+      font-size: 1.1rem;
+    }
+    .collection .collection-item.total-row {
+      border-top: 2px solid var(--verde-sanchez);
+      padding-top: 20px;
+      margin-top: 10px;
+    }
+    .collection .collection-item.total-row .total-label {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--azul-sanchez);
+    }
+    .collection .collection-item.total-row .total-amount {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--verde-sanchez);
+    }
+
+    footer.page-footer {
+      background-color: var(--azul-sanchez);
+      padding-top: 30px;
+      margin-top: 40px;
+      box-shadow: none;
+    }
+    footer.page-footer .footer-copyright {
+      background-color: rgba(0,0,0,0.1);
+      padding: 15px 0;
+    }
+    footer.page-footer a {
+      color: white;
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    footer.page-footer a:hover {
+      color: var(--verde-sanchez);
+    }
+    .footer-logo {
+      height: 70px;
+      filter: brightness(0) invert(1); 
+    }
+    .green-highlight-footer {
+      color: var(--verde-sanchez);
+      font-weight: 500;
+    }
+    .terms-disclaimer {
+        font-size: 0.9em;
+        color: #888;
+        margin-top: 30px;
+    }
+   
+    .centered-hr {
+        max-width: 600px; 
+        margin: 20px auto; 
+        border: 0;
+        height: 1px; 
+        background-color: rgba(255, 255, 255, 0.25); 
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="z-depth-2">
+    <div class="nav-wrapper">
+      <a href="index-bootstrap.html" class="brand-logo">
+        <img src="LOGO_SANCHEZ_ARREGLADO_2024.png" alt="Sánchez y Sánchez Logo">
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Categorias.html">Categorías</a></li>
+        <li><a href="pago.html" class="active">Pago</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h4>Finaliza tu Compra Segura</h4>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-l2">
+
+          <div class="card z-depth-3">
+            <div class="card-content">
+              <span class="card-title"><i class="material-icons">local_shipping</i> Información de Envío y Facturación</span>
+              <form>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">person</i>
+                    <input id="nombre_completo" type="text" class="validate" required>
+                    <label for="nombre_completo">Nombre Completo</label>
+                  </div>
+                  <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">credit_card</i>
+                    <input id="rut" type="text" class="validate" pattern="^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$" title="Ej: 12.345.678-9" required>
+                    <label for="rut">RUT</label>
+                    <span class="helper-text" data-error="Formato RUT incorrecto (Ej: 12.345.678-9)"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">location_on</i>
+                    <input id="direccion1" type="text" class="validate" required>
+                    <label for="direccion1">Dirección (Calle, Número, Depto.)</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">apartment</i>
+                    <input id="ciudad" type="text" class="validate" required>
+                    <label for="ciudad">Ciudad</label>
+                  </div>
+                  <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">public</i>
+                    <select id="region" required>
+                      <option value="" disabled selected>Selecciona tu Región</option>
+                      <option value="Magallanes">Región de Magallanes y la Antártica Chilena</option>
+                      <option value="Metropolitana">Región Metropolitana de Santiago</option>
+                      <option value="Valparaiso">Región de Valparaíso</option>
+                      <option value="Biobio">Región del Biobío</option>
+                      <option value="Araucania">Región de La Araucanía</option>
+                      </select>
+                    <label for="region">Región</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">local_post_office</i>
+                    <input id="codigo_postal" type="text" class="validate" pattern="^[0-9]{7}$" title="7 dígitos numéricos" required>
+                    <label for="codigo_postal">Código Postal</label>
+                    <span class="helper-text" data-error="Código postal debe ser de 7 dígitos numéricos"></span>
+                  </div>
+                  <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="telefono" type="tel" class="validate" pattern="^[0-9]{9}$" title="9 dígitos numéricos (sin código de área de país)" required>
+                    <label for="telefono">Teléfono</label>
+                    <span class="helper-text" data-error="Número de teléfono debe ser de 9 dígitos numéricos"></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="card z-depth-3">
+            <div class="card-content">
+              <span class="card-title"><i class="material-icons">payment</i> Método de Pago</span>
+              <div class="row">
+                <div class="col s12">
+                  <ul class="tabs">
+                    <li class="tab col s6"><a class="active" href="#card-payment">Tarjeta de Crédito/Débito</a></li>
+                    <li class="tab col s6"><a href="#transfer-payment">Transferencia Bancaria</a></li>
+                  </ul>
+                </div>
+                <div id="card-payment" class="col s12 tab-content-panel">
+                  <form class="mt-3">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <i class="material-icons prefix">payment</i>
+                        <input id="card_number" type="text" class="validate" pattern="^[0-9]{13,19}$" title="Número de tarjeta (13-19 dígitos)" required>
+                        <label for="card_number">Número de Tarjeta</label>
+                        <span class="helper-text" data-error="Número de tarjeta incorrecto"></span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <i class="material-icons prefix">person_outline</i>
+                        <input id="card_name" type="text" class="validate" required>
+                        <label for="card_name">Nombre en la Tarjeta</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s4">
+                        <select id="expiry_month" required>
+                          <option value="" disabled selected>Mes</option>
+                          <option value="01">01</option>
+                          <option value="02">02</option>
+                          <option value="03">03</option>
+                          <option value="04">04</option>
+                          <option value="05">05</option>
+                          <option value="06">06</option>
+                          <option value="07">07</option>
+                          <option value="08">08</option>
+                          <option value="09">09</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                        </select>
+                        <label for="expiry_month">Mes Vencimiento</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <select id="expiry_year" required>
+                          <option value="" disabled selected>Año</option>
+                          <script>
+                            const currentYear = new Date().getFullYear();
+                            for (let i = 0; i < 10; i++) {
+                              document.write(`<option value="${currentYear + i}">${currentYear + i}</option>`);
+                            }
+                          </script>
+                        </select>
+                        <label for="expiry_year">Año Vencimiento</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="cvv" type="text" class="validate" pattern="^[0-9]{3,4}$" title="CVV (3 o 4 dígitos)" required>
+                        <label for="cvv">CVV</label>
+                        <span class="helper-text" data-error="CVV incorrecto"></span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div id="transfer-payment" class="col s12 tab-content-panel">
+                  <div class="card-panel z-depth-0" style="background-color: rgba(139, 197, 63, 0.1); border-left: 5px solid var(--verde-sanchez);">
+                    <p class="flow-text" style="color: var(--azul-sanchez); font-weight: 500;"><i class="material-icons left">info_outline</i> Instrucciones para Transferencia Bancaria</p>
+                    <p>Para completar tu compra mediante transferencia bancaria, por favor, realiza la transferencia al siguiente número de cuenta:</p>
+                    <ul class="collection z-depth-0" style="border: none; margin-top: 20px;">
+                        <li class="collection-item" style="border-bottom: 1px dashed rgba(0,0,0,0.1);"><strong>Banco:</strong> <span class="right">Banco Chile</span></li>
+                        <li class="collection-item" style="border-bottom: 1px dashed rgba(0,0,0,0.1);"><strong>Tipo de Cuenta:</strong> <span class="right">Cuenta Corriente</span></li>
+                        <li class="collection-item" style="border-bottom: 1px dashed rgba(0,0,0,0.1);"><strong>Número de Cuenta:</strong> <span class="right">00016758493</span></li>
+                        <li class="collection-item" style="border-bottom: 1px dashed rgba(0,0,0,0.1);"><strong>RUT Beneficiario:</strong> <span class="right">76.675.329-k</span></li>
+                        <li class="collection-item"><strong>Nombre Beneficiario:</strong> <span class="right">Sánchez y Sánchez S.A.</span></li>
+                    </ul>
+                    <p class="mt-3">Una vez realizada la transferencia, envía el comprobante de pago a <a href="mailto:pagos@sanchezysanchez.cl" class="blue-text text-darken-2 fw-bold">pagos@sanchezysanchez.cl</a>, incluyendo tu número de pedido para una rápida verificación.</p>
+                    <p class="terms-disclaimer">Tu pedido será procesado una vez confirmado el pago. ¡Gracias por tu compra!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card z-depth-3">
+            <div class="card-content">
+              <span class="card-title"><i class="material-icons">receipt</i> Resumen del Pedido</span>
+              <ul class="collection" id="order-summary-list">
+                </ul>
+              <ul class="collection">
+                <li class="collection-item total-row">
+                  <div class="total-label">Envío</div>
+                  <h6 class="price" id="shipping-cost">$5.000</h6>
+                </li>
+                <li class="collection-item total-row">
+                  <div class="total-label">Total a Pagar</div>
+                  <h6 class="total-amount" id="total-amount">$0</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card center-align z-depth-3">
+            <div class="card-content">
+              <button class="btn-large waves-effect waves-light pay-button" type="submit" name="action">
+                Confirmar y Pagar <i class="material-icons right">check_circle</i>
+              </button>
+              <p class="terms-disclaimer">Al hacer clic en "Confirmar y Pagar", aceptas nuestros <a href="#" class="blue-text text-darken-2 fw-bold">Términos y Condiciones</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer z-depth-2">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text"><span class="green-highlight-footer">Sánchez y Sánchez</span></h5>
+          <p class="grey-text text-lighten-4">Tu tienda por departamento en la Patagonia. Desde 1933, calidad y variedad para tu hogar y familia.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Enlaces Rápidos</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="index.html">Inicio</a></li>
+            <li><a class="grey-text text-lighten-3" href="Categorias.html">Categorías</a></li>
+            <li><a class="grey-text text-lighten-3" href="pago.html">Pago</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Contacto</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col s12 center-align">
+              <hr class="centered-hr"> <p class="mb-0 footer-slogan grey-text text-lighten-4">Orgullosamente Magallánicos, llevando lo mejor a tu hogar.</p>
+              <p class="mb-0 grey-text text-lighten-4">&copy; 2025 Yajaira & Josefa. Todos los derechos reservados.</p>
+          </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+     
+      M.FormSelect.init(document.querySelectorAll('select')); 
+      M.Tabs.init(document.querySelectorAll('.tabs'));
+
+      
+      function checkRut(rut) {
+          if (!rut || rut.trim().length === 0) return false;
+          rut = rut.replace(/\./g, "").replace(/-/g, "");
+          var dv = rut.substring(rut.length - 1, rut.length);
+          var cuerpo = rut.substring(0, rut.length - 1);
+          if (cuerpo.length < 7) { return false; } 
+          rut = cuerpo + "-" + dv;
+          if (dv == 'K') dv = 'k';
+          return (Fn.validaRut(rut.trim().toUpperCase()));
+      }
+      var Fn = {
+        validaRut : function (rutCompleto) {
+            if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rutCompleto ))
+                return false;
+            var tmp     = rutCompleto.split('-');
+            var digv    = tmp[1];
+            var rut     = tmp[0];
+            if ( digv == 'K' ) digv = 'k' ;
+
+            return (Fn.dv(rut) == digv );
+        },
+        dv : function(T){
+            var M=0,S=1;
+            for(;T;T=Math.floor(T/10))
+                S=(S+T%10*(9-M++%6))%11;
+            return S?S-1:'k';
+        }
+      }
+
+   
+      const rutInput = document.getElementById('rut');
+      if (rutInput) {
+        rutInput.addEventListener('input', function() {
+          if (checkRut(this.value)) {
+            this.classList.remove('invalid');
+            this.classList.add('valid');
+          } else {
+            this.classList.remove('valid');
+            this.classList.add('invalid');
+          }
+        });
+      }
+
+     
+      const formInputs = document.querySelectorAll('input.validate, select.validate, textarea.validate');
+      formInputs.forEach(input => {
+        input.addEventListener('input', function() {
+          if (this.checkValidity()) {
+            this.classList.remove('invalid');
+            this.classList.add('valid');
+          } else {
+            this.classList.remove('valid');
+            this.classList.add('invalid');
+          }
+        });
+      
+        input.dispatchEvent(new Event('input'));
+      });
+
+      const simulatedCartItems = [
+        { name: "Licuadora de Alta Potencia 1200W", quantity: 1, price: 59990 },
+        { name: "Set de Cuchillos Premium 8 piezas", quantity: 1, price: 34990 },
+        { name: "Auriculares Inalámbricos Bluetooth", quantity: 2, price: 18500 }, 
+        { name: "Cafetera Expresso Automática", quantity: 1, price: 129990 }
+      ];
+
+      const shippingCost = 5000; 
+
+      const orderSummaryList = document.getElementById('order-summary-list');
+      const shippingCostElement = document.getElementById('shipping-cost');
+      const totalAmountElement = document.getElementById('total-amount');
+
+    
+      function formatPrice(price) {
+        return `$${price.toLocaleString('es-CL')}`;
+      }
+
+      function updateSimulatedOrderSummary() {
+        orderSummaryList.innerHTML = ''; 
+
+        let subtotal = 0;
+
+        if (simulatedCartItems.length > 0) {
+          simulatedCartItems.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('collection-item');
+            listItem.innerHTML = `
+              <div class="item-details">${item.name} <span class="item-quantity">x${item.quantity}</span></div>
+              <span class="price">${formatPrice(item.price * item.quantity)}</span> `;
+            orderSummaryList.appendChild(listItem);
+            subtotal += item.price * item.quantity;
+          });
+        } else {
+           orderSummaryList.innerHTML = '<li class="collection-item center-align grey-text">No hay productos en la simulación de carrito.</li>';
+        }
+
+
+        shippingCostElement.textContent = formatPrice(shippingCost);
+
+        const total = subtotal + shippingCost;
+        totalAmountElement.textContent = formatPrice(total);
+      }
+ 
+      updateSimulatedOrderSummary();
+
+
+
+    });
+  </script>
+</body>
+</html>
